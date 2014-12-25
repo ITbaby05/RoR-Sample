@@ -1,0 +1,42 @@
+<% provide(:title, @user.name) %>
+<style>
+    .container {
+        padding-right: 0!important;
+        padding-left: 0!important;
+        width: 1170px;
+    }
+
+    #one_maincolumn #detailrightbloc {
+        width: 61%;
+        float: right;
+    }
+</style>
+<div id="one_maincolumn">
+  <div class="container">
+    <div id="detailarea" class="clearfix">
+        <div class="row">
+          <aside class="span4">
+            <section>
+                <h1>
+                  <%= gravatar_for @user, size: 120 %>
+                  <%= @user.name %><br>
+                  <%= pluralize(@user.microposts.count, "micropost") %><br>
+                  <%= link_to "Edit My Profile", edit_user_path(@user), :style => "color: blue" %>
+                </h1>
+              <%= render 'shared/stats' %>
+            </section>
+          </aside>
+          <div class="span8">
+            <%= render 'follow_form' if signed_in? %>
+            <% if @user.microposts.any? %>
+                <h3>Microposts (<%= @user.microposts.count %>)</h3>
+                <ol class="microposts">
+                  <%= render @microposts %>
+                </ol>
+                <%= will_paginate @microposts %>
+            <% end %>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>

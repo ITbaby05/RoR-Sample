@@ -1,0 +1,78 @@
+<style>
+.container {
+    padding-right: 0!important;
+    padding-left: 0!important;
+    width: 1170px;
+}
+
+#one_maincolumn #detailrightbloc {
+    width: 61%;
+    float: right;
+}
+</style>
+<div id="one_maincolumn">
+    <div class="container">
+        <div id="detailarea" class="clearfix">
+            <div id="detailphotobloc">
+                <div class="photo">
+                    <%= image_tag "07_img-6.png" ,:class => 'picture'%>
+                </div>
+            </div>
+            <div id="detailrightbloc">
+                <h1 class="product_name">Room: <%= @apartment.room %></h1>
+                <div class="product_info_content">
+                    <div class="product_info">
+                        <span class="fa fa-arrows-alt"></span>
+                        <%= @apartment.area %>  m<sup>2</sup>
+                    </div>
+                    <div class="product_info">
+                        <span class="fa fa-building-o"></span>
+                        <%= @apartment.floor.ordinalize %> floor
+                    </div>
+                    <dl class="price_format">
+                        <span id="price01_default"><%= number_to_currency(@apartment.price,precision:0,unit:"VND ") %></span><span id="price01_dynamic"></span>
+                    </dl>
+                </div>             
+
+                <div class="contact_content">
+                    <div class="">
+                        <h2 class="title_mail">
+                            <span class="text semibold">Please contact us for more information</span>
+                        </h2>
+                    </div>
+                    <form id="interestForm_" name="interestedForm" action="http://www.homegreekhome.com/en/requests/visitRequestSubmit/2252838" method="post" class="formContainer   columns nested ">
+                        <div class="mainEnquireForm__leftColumn columns    nested ">
+                            <div class="padding-left-large   borderBox">
+                                <div class="margin-small"> 
+                                    <input type="text" class="autoReset borderBox round_corners emptyText" id="fv_firstNameReq" name="fv_firstNameReq" value="" title="First name" placeholder="First name">
+                                </div>
+                                <div class="margin-small">
+                                    <input type="text" class="autoReset borderBox round_corners emptyText" id="fv_lastNameReq" name="fv_lastNameReq" value="" title="Last name" placeholder="Last name">
+                                </div>
+                                <div class="margin-small">
+                                    <input type="text" class="autoReset borderBox round_corners" id="fv_phoneNumberReq" name="fv_phoneNumberReq" value="" title="Mobile" placeholder="Mobile">
+                                </div>
+                                <div class="margin-small">
+                                    <input type="text" class="autoReset borderBox round_corners" id="fv_contactEmail" name="fv_contactEmail" value="" title="Email" placeholder="Email">
+                                </div>
+                            </div>    
+                        </div>
+                        <div class="mainEnquireForm__rightColumn   columns    nested  ">
+                            <div class=" padding-left-large  borderBox">
+                                <div class="margin-small">
+                                    <textarea id="fv_messageText" name="fv_messageText" class="borderBox round_corners margin-small-bottom"></textarea>
+                                </div>
+                                <div class="clear"></div>
+                                <div id="requestSubmit_" >
+                                    <a href="#" rel="nofollow"  class="orrange-btn">
+                                        <i class="fa fa-envelope text medium"></i>&nbsp;  <span>Send email</span><span class="hidden refreshIcon margin-left"><i class="fa fa-refresh  fa-spin block"></i></span>
+                                    </a>
+                                </div>          
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
